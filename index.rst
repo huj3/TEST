@@ -4,17 +4,19 @@ Utilities
 seq\_stat
 ---------
 
-DESCRIPTION
-  seq\_stat can be used to perform some simple statistics (such as length distribution, total amount of data and sequencing depth) on the input data, and give the recommended minimum seed length.
+.. glossary::
 
-INPUT
-  - read files list, one line one file
+  DESCRIPTION
+    seq\_stat can be used to perform some simple statistics (such as length distribution, total amount of data and sequencing depth) on the input data, and give the recommended minimum seed length.
 
-OUTPUT (stdout)
-  - Read length histogram
-  - Read length info.
-  - Total Bases info.
-  - Recommended minimum seed length
+  INPUT
+    - read files list, one line one file
+
+  OUTPUT (stdout)
+    - Read length histogram
+    - Read length info.
+    - Total Bases info.
+    - Recommended minimum seed length
 
 OPTIONS
   | -f skip reads with length shorter than this value, default 1kb
