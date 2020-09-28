@@ -1,5 +1,7 @@
+.. _qstart:
+
 .. image:: https://img.shields.io/github/downloads/Nextomics/NextDenovo/total?logo=github
-   :target: https://github.com/Nextomics/NextDenovo/releases/download/v2.3.1/NextDenovo.tgz
+   :target: https://github.com/Nextomics/NextDenovo/releases/latest/download/NextDenovo.tgz
    :alt: Download
 .. image:: https://img.shields.io/github/release/Nextomics/NextDenovo.svg
    :target: https://github.com/Nextomics/NextDenovo/releases
@@ -17,9 +19,9 @@ NextDenovo
 
 NextDenovo is a string graph-based *de novo* assembler for long reads. It uses a "correct-then-assemble" strategy similar to canu, but requires significantly less computing resources and storages. After assembly, the per-base error rate is about 98-99.8%, to further improve single base accuracy, please use `NextPolish <https://github.com/Nextomics/NextPolish>`_.
 
-NextDenovo contains two core modules: NextCorrect and NextGraph. NextCorrect can be used to correct long noisy reads with approximately 15% sequencing errors, and NextGraph can be used to construct a string graph with corrected reads. It also contains a modified version of `minimap2 <https://github.com/lh3/minimap2>`_ and some useful utilities (see `here <./doc/UTILITY.md>`__ for more details).
+NextDenovo contains two core modules: NextCorrect and NextGraph. NextCorrect can be used to correct long noisy reads with approximately 15% sequencing errors, and NextGraph can be used to construct a string graph with corrected reads. It also contains a modified version of `minimap2 <https://github.com/lh3/minimap2>`_ and some useful utilities (see :ref:`utility <utilities>` for more details).
 
-We benchmarked NextDenovo against other assemblers using Oxford Nanopore long reads from human and drosophila melanogaster, and PacBio continuous long reads (CLR) from arabidopsis thaliana. NextDenovo produces more contiguous assemblies with fewer contigs compared to the other tools. NextDenovo also shows a high assembly accurate level in terms of assembly consistency and single-base accuracy, see `here <#benchmark>`__ for details.
+We benchmarked NextDenovo against other assemblers using Oxford Nanopore long reads from :ref:`human <chm13_120x_ont>` and :ref:`drosophila melanogaster <dmel_69x_ont>`, and PacBio continuous long reads (CLR) from :ref:`arabidopsis thaliana <alta_192x_clr>`. NextDenovo produces more contiguous assemblies with fewer contigs compared to the other tools. NextDenovo also shows a high assembly accurate level in terms of assembly consistency and single-base accuracy.
 
 .. Table of Contents
 .. -----------------
@@ -42,13 +44,13 @@ Installation
 
 -  **DOWNLOAD**  
 
-   click `here <https://github.com/Nextomics/NextDenovo/releases/download/v2.3.1/NextDenovo.tgz>`__ or use the following command:
+   click `here <https://github.com/Nextomics/NextDenovo/releases/latest/download/NextDenovo.tgz>`__ or use the following command:
 
    .. code:: console
 
-      wget https://github.com/Nextomics/NextDenovo/releases/download/v2.3.1/NextDenovo.tgz
+      wget https://github.com/Nextomics/NextDenovo/releases/latest/download/NextDenovo.tgz
 
-   .. note:: If you get an error like ``version 'GLIBC_2.14' not found`` or ``liblzma.so.0: cannot open shared object file``, Please download `this version <https://github.com/Nextomics/NextDenovo/releases/download/v2.3.1/NextDenovo-CentOS6.9.tgz>`_.
+   .. note:: If you get an error like ``version 'GLIBC_2.14' not found`` or ``liblzma.so.0: cannot open shared object file``, Please download `this version <https://github.com/Nextomics/NextDenovo/releases/latest/download/NextDenovo-CentOS6.9.tgz>`_.
 
 -  **REQUIREMENT**
 
@@ -84,9 +86,9 @@ Quick Start
 
    .. code:: console
 
-      cp NextDenovo/doc/run.cfg ./
+      cp doc/run.cfg ./
    
-   .. note:: Please change the value of seed\_cutoff using `bin/seq\_stat <./doc/UTILITY.md#seq_stat>`_ and refer to `doc/OPTION <doc/OPTION.md>`_ to optimize parallel computing parameters.
+   .. note:: Please change the value of seed\_cutoff using :ref:`bin/seq\_stat <seq_stat>` and refer to :ref:`doc/OPTION <options>` to optimize parallel computing parameters.
 
 #. Run
 
@@ -104,8 +106,9 @@ Getting Help
 
 -  **HELP**
 
-   Please raise an issue at the `issue page <https://github.com/Nextomics/NextDenovo/issues/new/choose>`_. They would also be helpful to other users.
+   Feel free to raise an issue at the `issue page <https://github.com/Nextomics/NextDenovo/issues/new/choose>`_. They would also be helpful to other users.
 
+   .. important:: Please ask questions on the issue page if possible. They are also helpful to other users and avoid answering the same questions again and again.
 -  **CONTACT**
    
    For additional help, please send an email to huj\_at\_grandomics\_dot\_com.
@@ -125,31 +128,6 @@ Limitations
 
 #. The current version of NextDenovo is not suitable for assembly with PacBio HiFi reads, becasue Minimap2 does not optimize for HiFi reads overlapping.
 #. NextDenovo is optimized for assembly with seed\_cutoff >= 10kb. This should not be a big problem because it only requires the longest 30x-45x seeds length >= 10kb. For shorter seeds, it may produce unexpected results for some complex genomes and need be careful to check the quality.
-
-Frequently Asked Questions
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#. Which job scheduling systems are supported by NextDenovo?
-
-   NextDenovo uses `DRMAA <https://en.wikipedia.org/wiki/DRMAA>`__ to submit, control, and monitor jobs, so theoretically it supports all DRMAA-compliant systems, such as LOCAL, SGE, PBS, SLURM. See `ParallelTask <https://github.com/moold/ParallelTask>`_ to configure drmaa.
-#. **How to continue running unfinished tasks?**
-   
-   No need to make any changes, simply run the same command again.
-#. How to reduce the total number of subtasks?
-   
-   Please increase blocksize and reduce seed\_cutfiles.
-#. How to speed up NextDenovo?
-   
-   Currently, the bottlenecks of NextDenovo are minimap2 and IO. For minimap2, please see `here <https://github.com/lh3/minimap2/issues/322>`__ to accelerate minimap2, besides, you can increase -l to reduce result size and disk consumption. For IO, you can check how many activated subtasks using top/htop, in theory, it should be equal to the -p parameter defined in correction\_options. Use usetempdir will reduce IO wait, especially if usetempdir is on a SSD driver.
-#. How to specify the queue cpu/memory/bash to submit jobs?
-   
-   Please use cluster\_options, NextDenovo will replace {vf}, {cpu}, {bash} with specific values needed for each jobs.
-#. RuntimeError: Could not find drmaa library. Please specify its full path using the environment variable DRMAA\_LIBRARY\_PATH.
-   
-   Please setup the environment variable: DRMAA\_LIBRARY\_PATH, see `here <https://github.com/pygridtools/drmaa-python>`__ for more details.
-#. ERROR: drmaa.errors.DeniedByDrmException: code 17: error: no suitable queues.
-   
-   This is usually caused by a wrong setting of cluster\_options, please check cluster\_options first. If you use SGE, you also can add '-w n' to cluster\_options, it will switch off validation for invalid resource requests. Please add a similar option for other job scheduling systems.
 
 Star
 ~~~~

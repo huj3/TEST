@@ -1,12 +1,14 @@
+.. _parameterreference:
+
 NextDenovo Parameter Reference
 ==============================
 
-NextDenovo requires at least one read file (option: input_fofn) as input, it works with gzip'd FASTA and FASTQ formats and uses a config file to pass options, see `here <./run.cfg>`__ for an example.
+NextDenovo requires at least one read file (option: ``input_fofn``) as input, it works with gzip'd FASTA and FASTQ formats and uses a ``config file`` to pass options.
 
-INPUT
+Input
 -----
 
-- ``reads files list`` (one file one line)
+- ``input_fofn`` (one file one line)
 
   .. code:: console
 
@@ -43,7 +45,7 @@ INPUT
     minimap2_options_cns = -x ava-ont -t 8 -k17 -w17 
     nextgraph_options = -a 1  
 
-OUTPUT
+Output
 ------
 
 - ``workdir/03.ctg_graph/nd.asm.fasta``
@@ -53,7 +55,9 @@ OUTPUT
 
   Some basic statistical information (N10-N90, Total size et al.).
 
-OPTIONS
+.. _options:
+
+Options
 -------
 
 Global options
@@ -120,10 +124,10 @@ Correction options
     number of corrected tasks used to run in parallel, overwrite ${parallel_jobs} only for this step. (default: 15)
   .. option::  minimap2_options_raw = -x ava-ont -t 10  
 
-    minimap2 options, used to find overlaps between raw reads and set PacBio/Nanopore read overlap, see `minimap2-nd <#minimap2-nd>`__ for details. (**required**)
+    minimap2 options, used to find overlaps between raw reads and set PacBio/Nanopore read overlap, see :ref:`minimap2-nd <minimap2-nd>` for details. (**required**)
   .. option::  sort_options = -m 40g -t 10 -k 50 
 
-    sort options, see `ovl_sort <#ovl_sort>`__ for details.  
+    sort options, see :ref:`ovl_sort <ovl_sort>` for details.  
   .. option::  correction_options = -p 10 
 
     correction options, see following::
@@ -146,4 +150,4 @@ Assembly options
     minimap2 options, used to map reads back to the assembly.
   .. option::  nextgraph_options = -a 1
 
-    nextgraph options, see `nextgraph <#nextgraph>`__ for details.  
+    nextgraph options, see :ref:`nextgraph <nextgraph>` for details.  

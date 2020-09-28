@@ -1,5 +1,5 @@
 .. toctree::
-  :caption: Start
+  :caption: Getting started
   :maxdepth: 2
   :hidden:
   
@@ -7,6 +7,7 @@
   Tutorial <TEST1>   
   Parameter Reference <OPTION>     
   Utilities <UTILITY>
+  FAQ <FAQ>
 
 .. toctree::
   :caption: Benchmark
@@ -16,6 +17,5 @@
   CHM13hTERT human cell line with 120x Oxford Nanopore data <TEST2>   
   Arabidopsis thaliana with 192X PacBio CLR data (~1% heterozygosity) <TEST3>   
   Drosophila melanogaster with 69X Oxford Nanopore data <TEST4>
-
 
 .. include:: QSTART.rst

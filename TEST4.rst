@@ -1,3 +1,5 @@
+.. _dmel_69x_ont:
+
 .. title:: Drosophila melanogaster with 69X Oxford Nanopore data
 
 Assessment of the `Drosophila melanogaster ISO1 ref. strain <https://www.ncbi.nlm.nih.gov/biosample/SAMN08511563>`__ genome (69X NanoPore data) assemblies using NextDenovo, Canu, Flye, Shasta and Wtdbg
@@ -190,4 +192,4 @@ Assessment of the `Drosophila melanogaster ISO1 ref. strain <https://www.ncbi.nl
   | LGA75                          | 14            | 42             | 24              | 227             | 27              |
   +--------------------------------+---------------+----------------+-----------------+-----------------+-----------------+
 
-  .. note:: The results of Canu, Flye and Wtdbg are copied from ftp://ftp.dfci.harvard.edu/pub/hli/wtdbg/dm-ISO1, published by `wtdbg2 paper <https://www.nature.com/articles/s41592-019-0669-3>`__, the complete result of Quast can be seen from `here <./TEST4.pdf>`__.
+  .. note:: The results of Canu, Flye and Wtdbg are copied from ftp://ftp.dfci.harvard.edu/pub/hli/wtdbg/dm-ISO1, published by `wtdbg2 paper <https://www.nature.com/articles/s41592-019-0669-3>`__, the complete result of Quast can be seen from :download:`here <./TEST4.pdf>`.

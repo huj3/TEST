@@ -1,3 +1,5 @@
+.. _alta_192x_clr:
+
 .. title:: Arabidopsis thaliana with 192X PacBio CLR data
 
 Assessment of the `Arabidopsis thaliana F1 generation of Col-0 and Cvi-0 strains <https://www.ncbi.nlm.nih.gov/biosample/4539663>`__ genome (~1% heterozygosity, 192X PacBio CLR reads) assemblies using NextDenovo, Canu, Falcon, Flye, Shasta, Mecat and Wtdbg
@@ -188,4 +190,4 @@ Assessment of the `Arabidopsis thaliana F1 generation of Col-0 and Cvi-0 strains
   | LGA75                          | 61             | 140              | 41             | 230             | 202             | 80             | 82               |
   +--------------------------------+----------------+------------------+----------------+-----------------+-----------------+----------------+------------------+
 
-  .. note:: the results of Canu, Falcon, Flye, Mecat and Wtdbg are copied from ftp://ftp.dfci.harvard.edu/pub/hli/wtdbg/at-f1, published by `wtdbg2 paper <https://www.nature.com/articles/s41592-019-0669-3>`__, the complete result of Quast can be seen from `here <./TEST3.pdf>`__.
+  .. note:: the results of Canu, Falcon, Flye, Mecat and Wtdbg are copied from ftp://ftp.dfci.harvard.edu/pub/hli/wtdbg/at-f1, published by `wtdbg2 paper <https://www.nature.com/articles/s41592-019-0669-3>`__, the complete result of Quast can be seen from :download:`here <./TEST3.pdf>`.

@@ -1,5 +1,9 @@
+.. _utilities:
+
 Utilities
 =========
+
+.. _seq_stat:
 
 seq_stat
 ---------
@@ -25,6 +29,8 @@ seq_stat
     -d  expected seed depth, used to be corrected [45].
     -a  disable automatic adjustment.
 
+.. _seq_dump:
+
 seq_dump
 ---------
 
@@ -49,6 +55,8 @@ seq_dump
     -n  number of seed subfiles in total.
     -d  output directory.
 
+.. _seq_bit:
+
 seq_bit
 --------
 
@@ -60,6 +68,8 @@ seq_bit
   .. object:: OUTPUT (stdout)
 
     - sequences with fasta or bit format.
+
+.. _minimap2-nd:
 
 minimap2-nd
 -----------
@@ -84,6 +94,8 @@ minimap2-nd
     --maxhan1 INT   max over hang length, used to re-align [5000]
     --maxhan2 INT   max over hang length, used to filter contained reads [500]
 
+.. _ovl_sort:
+
 ovl_sort
 ---------
 
@@ -106,6 +118,8 @@ ovl_sort
     -o    output file name **[required]**
     -d    temporary directory [$CWD]
 
+.. _ovl_cvt:
+
 ovl_cvt
 --------
 
@@ -120,6 +134,8 @@ ovl_cvt
   .. object:: OPTIONS
 
     -m INT    conversion mode (0 for compress, 1 for uncompress)
+
+.. _nextgraph:
 
 nextgraph
 ---------
@@ -166,6 +182,8 @@ nextgraph
     -L, --sloop_len INT            max len of a short loop [10]
     -t, --max_hang_len INT         max over hang length of dovetails [500]
     -F, --fuzz_len INT             fuzz len for trans-reduction [1000]
+
+.. _bam_sort:
 
 bam_sort
 ---------
