@@ -56,7 +56,8 @@ OUTPUT
 OPTIONS
 -------
 
-.. object:: [General]    # global options
+Global options
+##############
 
   .. option:: job_type = sge           
     
@@ -70,77 +71,79 @@ OPTIONS
     task need to run. (default: all)
   .. option::  rewrite = no  
 
-      overwrite existed directory [yes, no]. (default: no)
+    overwrite existed directory [yes, no]. (default: no)
   .. option::  deltmp = yes      
 
-      delete intermediate results. (default: yes)
+    delete intermediate results. (default: yes)
   .. option::  rerun = 3         
 
-      re-run unfinished jobs untill finished or reached ${rerun} loops, 0=no. (default: 3)
+    re-run unfinished jobs untill finished or reached ${rerun} loops, 0=no. (default: 3)
   .. option::  parallel_jobs = 10       
 
-      number of tasks used to run in parallel. (default: 10)
+    number of tasks used to run in parallel. (default: 10)
   .. option::  input_type = raw         
 
-      input reads type [raw, corrected]. (default: raw)
+    input reads type [raw, corrected]. (default: raw)
   .. option::  input_fofn = input.fofn  
 
-      input file, one line one file. (**required**)
+    input file, one line one file. (**required**)
   .. option::  workdir = 01.workdir     
 
-      work directory. (default: ./)
+    work directory. (default: ./)
   .. option::  usetempdir = /tmp/test   
 
-      temporary directory in compute nodes to avoid high IO wait. (default: None)
+    temporary directory in compute nodes to avoid high IO wait. (default: None)
   .. option::  nodelist = avanode.list.fofn
 
-      a list of hostnames of available nodes, one node one line, used with usetempdir for non-sge job_type.
-  .. option::  cluster_options = auto
+    a list of hostnames of available nodes, one node one line, used with usetempdir for non-sge job_type.
+  .. option:: cluster_options = auto
 
-      a template to define the resource requirements for each job, which will pass to <a href="https://github.com/pygridtools/drmaa-python/wiki/FAQ">DRMAA</a> as the nativeSpecification field.
+    a template to define the resource requirements for each job, which will pass to `DRMAA <https://github.com/pygridtools/drmaa-python/wiki/FAQ>`__ as the nativeSpecification field.
 
-.. object:: [correct_option]    # options using only in corrected step.
+Correction options
+##################
 
   .. option::  read_cutoff = 1k   
 
-      filter reads with length < read_cutoff. (default: 1k)
+    filter reads with length < read_cutoff. (default: 1k)
   .. option::  seed_cutoff = 25k   
 
-      minimum seed length. (**required**)
+    minimum seed length. (**required**)
   .. option::  seed_cutfiles = 5    
 
-      split seed reads into ${seed_cutfiles} subfiles. (default: ${pa_correction})
+    split seed reads into ${seed_cutfiles} subfiles. (default: ${pa_correction})
   .. option::  blocksize = 10g      
 
-      block size for parallel running. (default: 10g)
+    block size for parallel running. (default: 10g)
   .. option::  pa_correction = 5        
 
-      number of corrected tasks used to run in parallel, overwrite ${parallel_jobs} only for this step. (default: 15)
+    number of corrected tasks used to run in parallel, overwrite ${parallel_jobs} only for this step. (default: 15)
   .. option::  minimap2_options_raw = -x ava-ont -t 10  
 
-      minimap2 options, used to find overlaps between raw reads and set PacBio/Nanopore read overlap, see `minimap2-nd <#minimap2-nd>`__ for details. (**required**)
+    minimap2 options, used to find overlaps between raw reads and set PacBio/Nanopore read overlap, see `minimap2-nd <#minimap2-nd>`__ for details. (**required**)
   .. option::  sort_options = -m 40g -t 10 -k 50 
 
-      sort options, see `ovl_sort <#ovl_sort>`__ for details.  
+    sort options, see `ovl_sort <#ovl_sort>`__ for details.  
   .. option::  correction_options = -p 10 
 
-      correction options, see following::
+    correction options, see following::
 
-        -p, --process, set the number of processes used for correcting. (default: 10)
-        -b, --blacklist, disable the filter step and increase more corrected data.
-        -s, --split, split the corrected seed with un-corrected regions. (default: False)
-        -fast, 0.5-1 times faster mode with a little lower accuracy. (default: False)
-        -dbuf, disable caching 2bit files and reduce ~TOTAL_INPUT_BASES/4 bytes of memory usage. (default:False)
-        -max_lq_length, maximum length of a continuous low quality region in a corrected seed, larger max_lq_length will produce more corrected data with lower accuracy. (default: auto [pb/1k, ont/10k])
+      -p, --process, set the number of processes used for correcting. (default: 10)
+      -b, --blacklist, disable the filter step and increase more corrected data.
+      -s, --split, split the corrected seed with un-corrected regions. (default: False)
+      -fast, 0.5-1 times faster mode with a little lower accuracy. (default: False)
+      -dbuf, disable caching 2bit files and reduce ~TOTAL_INPUT_BASES/4 bytes of memory usage. (default:False)
+      -max_lq_length, maximum length of a continuous low quality region in a corrected seed, larger max_lq_length will produce more corrected data with lower accuracy. (default: auto [pb/1k, ont/10k])
 
-.. object:: [assemble_option]    # options using only in assembly step.
+Assembly options
+##################
 
   .. option::  minimap2_options_cns = -x ava-ont -t 8 -k17 -w17 
 
-      minimap2 options, used to find overlaps between corrected reads. (default: -k17 -w17)
+    minimap2 options, used to find overlaps between corrected reads. (default: -k17 -w17)
   .. option::  minimap2_options_map = -x map-ont
 
-      minimap2 options, used to map reads back to the assembly.
+    minimap2 options, used to map reads back to the assembly.
   .. option::  nextgraph_options = -a 1
 
-      nextgraph options, see `nextgraph <#nextgraph>`__ for details.  
+    nextgraph options, see `nextgraph <#nextgraph>`__ for details.  

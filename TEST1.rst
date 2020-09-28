@@ -1,3 +1,5 @@
+.. title:: Tutorial
+
 Assemble the genome of HG002_NA24385_son using NextDenovo
 -----------------------------------------------------------
 

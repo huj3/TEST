@@ -1,3 +1,5 @@
+.. title:: CHM13hTERT human cell line with 120x Oxford Nanopore data
+
 Assessment of the `CHM13 <https://github.com/nanopore-wgs-consortium/CHM13>`__ genome (120X NanoPore data) assemblies using NextDenovo, Canu, Flye, Shasta
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -175,4 +177,4 @@ Assessment of the `CHM13 <https://github.com/nanopore-wgs-consortium/CHM13>`__ g
   | LGA50                          | 18            | 21               | 20             | 20            |
   +--------------------------------+---------------+------------------+----------------+---------------+
 
-.. note:: The results of Canu, Flye and Shasta are copied from `here <https://github.com/human-pangenomics/assembly-analysis>`__, the complete result of NextDenovo can be seen from `here <./TEST2.pdf>`__.
+  .. note:: The results of Canu, Flye and Shasta are copied from `here <https://github.com/human-pangenomics/assembly-analysis>`__, the complete result of NextDenovo can be seen from `here <./TEST2.pdf>`__.

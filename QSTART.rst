@@ -99,13 +99,6 @@ Quick Start
    -  Sequence: ``01_rundir/03.ctg_graph/nd.asm.fasta``
    -  Statistics: ``01_rundir/03.ctg_graph/nd.asm.fasta.stat``
 
-Benchmark
-~~~~~~~~~
-
--  `CHM13hTERT human cell line with 120x Oxford Nanopore data <./doc/TEST2.md>`_
--  `Arabidopsis thaliana with 192X PacBio CLR data (~1% heterozygosity) <./doc/TEST3.md>`_
--  `Drosophila melanogaster with 69X Oxford Nanopore data <./doc/TEST4.md>`_
-
 Getting Help
 ~~~~~~~~~~~~
 
@@ -161,7 +154,7 @@ Frequently Asked Questions
 Star
 ~~~~
 
-You can track updates by tab the "Star" button on the upper-right corner at this page.
+You can track updates by tab the "Star" button on the upper-right corner at the `github page <https://github.com/Nextomics/NextDenovo>`_.
 
 .. |ss| raw:: html
 
