@@ -17,11 +17,11 @@
 NextDenovo
 ==========
 
-NextDenovo is a string graph-based *de novo* assembler for long reads. It uses a "correct-then-assemble" strategy similar to canu, but requires significantly less computing resources and storages. After assembly, the per-base error rate is about 98-99.8%, to further improve single base accuracy, please use `NextPolish <https://github.com/Nextomics/NextPolish>`_.
+NextDenovo is a string graph-based *de novo* assembler for long reads. It uses a "correct-then-assemble" strategy similar to canu, but requires significantly less computing resources and storages. After assembly, the per-base accuracy is about 98-99.8%, to further improve single base accuracy, please use `NextPolish <https://github.com/Nextomics/NextPolish>`_.
 
-NextDenovo contains two core modules: NextCorrect and NextGraph. NextCorrect can be used to correct long noisy reads with approximately 15% sequencing errors, and NextGraph can be used to construct a string graph with corrected reads. It also contains a modified version of `minimap2 <https://github.com/lh3/minimap2>`_ and some useful utilities (see :ref:`utility <utilities>` for more details).
+NextDenovo contains two core modules: NextCorrect and NextGraph. NextCorrect can be used to correct long noisy reads with approximately 15% sequencing errors, and NextGraph can be used to construct a string graph with corrected reads. It also contains a modified version of `minimap2 <https://github.com/lh3/minimap2>`_ and some useful utilities (see :ref:`utilities <utilities>` for more details).
 
-We benchmarked NextDenovo against other assemblers using Oxford Nanopore long reads from :ref:`human <chm13_120x_ont>` and :ref:`drosophila melanogaster <dmel_69x_ont>`, and PacBio continuous long reads (CLR) from :ref:`arabidopsis thaliana <alta_192x_clr>`. NextDenovo produces more contiguous assemblies with fewer contigs compared to the other tools. NextDenovo also shows a high assembly accurate level in terms of assembly consistency and single-base accuracy.
+We benchmarked NextDenovo against other assemblers using Oxford Nanopore long reads from :ref:`human <chm13_120x_ont>` and :ref:`Drosophila melanogaster <dmel_69x_ont>`, and PacBio continuous long reads (CLR) from :ref:`Arabidopsis thaliana <alta_192x_clr>`. NextDenovo produces more contiguous assemblies with fewer contigs compared to the other tools. NextDenovo also shows a high assembly accurate level in terms of assembly consistency and single-base accuracy.
 
 .. Table of Contents
 .. -----------------
