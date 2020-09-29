@@ -108,7 +108,7 @@ Getting Help
 
    Feel free to raise an issue at the `issue page <https://github.com/Nextomics/NextDenovo/issues/new/choose>`_. They would also be helpful to other users.
 
-   .. important:: Please ask questions on the issue page if possible. They are also helpful to other users and avoid answering the same questions again and again.
+   .. important:: Please ask questions on the issue page first. They are also helpful to other users and avoid answering the same questions again and again.
 -  **CONTACT**
    
    For additional help, please send an email to huj\_at\_grandomics\_dot\_com.
